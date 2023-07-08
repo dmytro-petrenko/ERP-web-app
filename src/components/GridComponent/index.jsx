@@ -6,12 +6,10 @@ import {
   AppBarSpacer,
 } from '@progress/kendo-react-layout';
 import clsx from 'clsx';
-// import { data as customerData } from './dataPlaceholder';
 import axios from 'axios';
 import useSWR from 'swr';
 
-
-const GridComponent = ({ num, showDataHandler, heightData }) => {
+const GridComponent = ({ title, showDataHandler, heightData }) => {
 
   const fields = [
     'IDNo',
@@ -35,10 +33,10 @@ const GridComponent = ({ num, showDataHandler, heightData }) => {
   }
   
   const uid = '<customers>';
-  const fetcherFinance = () =>
+  const fetcherGridContent = () =>
     axios.get(createGetUrl(fields)).then((res) => res.data);
 
-  const { error, isLoading, data } = useSWR(uid, fetcherFinance);
+  const { error, isLoading, data } = useSWR(uid, fetcherGridContent);
 
   if (error) return <div className={styles.error}>Error: {error}</div>;
 
@@ -56,7 +54,7 @@ const GridComponent = ({ num, showDataHandler, heightData }) => {
   return (
     <div className={styles.gridContainer}>
       <AppBar className={styles.panel}>
-        <AppBarSection>Customers {num}</AppBarSection>
+        <AppBarSection>{title}</AppBarSection>
         <AppBarSpacer />
         <AppBarSection>
           <button

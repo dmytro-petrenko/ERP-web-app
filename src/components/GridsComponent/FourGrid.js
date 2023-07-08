@@ -3,7 +3,7 @@ import { Splitter } from '@progress/kendo-react-layout';
 import GridComponent from '../GridComponent';
 import { splitObjectToArrayObj } from '../../utils';
 
-const FourGrid = ({ data, showData, setShowData }) => {
+const FourGrid = ({ showData, setShowData }) => {
   const [panes, setPanes] = useState([{}, {}]);
 
   const [firstNestedPanes, setFirstNestedPanes] = useState([
@@ -24,9 +24,9 @@ const FourGrid = ({ data, showData, setShowData }) => {
   ]);
 
   const showDataArr = splitObjectToArrayObj(showData);
-  const filteredPosShowDataArr = showDataArr.filter((item) => {
-    if (Object.values(item)[0] === true) return item;
-  });
+  const filteredPosShowDataArr = showDataArr.filter(
+    (item) => Object.values(item)[0]
+  );
 
   const onChange = (event) => {
     setPanes(event.newState);
@@ -55,8 +55,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
           <Fragment key={index}>
             {item.first ? (
               <GridComponent
-                num="1"
-                data={data}
+                title="Accounts"
                 showDataHandler={() =>
                   setShowData({ ...showData, first: false })
                 }
@@ -64,8 +63,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.second ? (
               <GridComponent
-                num="2"
-                data={data}
+                title="Bank Accounts"
                 showDataHandler={() =>
                   setShowData({ ...showData, second: false })
                 }
@@ -73,8 +71,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.third ? (
               <GridComponent
-                num="3"
-                data={data}
+                title="Customers"
                 showDataHandler={() =>
                   setShowData({ ...showData, third: false })
                 }
@@ -82,8 +79,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.fourth ? (
               <GridComponent
-                num="4"
-                data={data}
+                title="Vendors"
                 showDataHandler={() =>
                   setShowData({ ...showData, fourth: false })
                 }
@@ -101,8 +97,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
           <Fragment key={index}>
             {item.first ? (
               <GridComponent
-                num="1"
-                data={data}
+                title="Accounts"
                 showDataHandler={() =>
                   setShowData({ ...showData, first: false })
                 }
@@ -110,8 +105,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.second ? (
               <GridComponent
-                num="2"
-                data={data}
+                title="Bank Accounts"
                 showDataHandler={() =>
                   setShowData({ ...showData, second: false })
                 }
@@ -119,8 +113,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.third ? (
               <GridComponent
-                num="3"
-                data={data}
+                title="Customers"
                 showDataHandler={() =>
                   setShowData({ ...showData, third: false })
                 }
@@ -128,8 +121,7 @@ const FourGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.fourth ? (
               <GridComponent
-                num="4"
-                data={data}
+                title="Vendors"
                 showDataHandler={() =>
                   setShowData({ ...showData, fourth: false })
                 }

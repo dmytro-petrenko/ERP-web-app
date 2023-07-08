@@ -1,6 +1,6 @@
 import GridComponent from '../GridComponent';
 
-const OneGrid = ({ data, showData, setShowData }) => {
+const OneGrid = ({ showData, setShowData }) => {
   return (
     <div
       style={{
@@ -12,29 +12,25 @@ const OneGrid = ({ data, showData, setShowData }) => {
     >
       {showData.first ? (
         <GridComponent
-          num="1"
-          data={data}
+          title="Accounts"
           showDataHandler={() => setShowData({ ...showData, first: false })}
         />
       ) : null}
       {showData.second ? (
         <GridComponent
-          num="2"
-          data={data}
+          title="Bank Accounts"
           showDataHandler={() => setShowData({ ...showData, second: false })}
         />
       ) : null}
       {showData.third ? (
         <GridComponent
-          num="3"
-          data={data}
+          title="Customers"
           showDataHandler={() => setShowData({ ...showData, third: false })}
         />
       ) : null}
       {showData.fourth ? (
         <GridComponent
-          num="4"
-          data={data}
+          title="Vendors"
           showDataHandler={() => setShowData({ ...showData, fourth: false })}
         />
       ) : null}

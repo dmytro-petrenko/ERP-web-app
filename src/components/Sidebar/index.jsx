@@ -33,16 +33,16 @@ const Sidebar = ({ showData, dataHandler }) => {
         <PanelBarItem title="Links" expanded={true}>
           <ul className={styles.menu}>
             <li className={styles.menuItem} onClick={firstLinkHandler}>
-              Link 1
+              Accounts
             </li>
             <li className={styles.menuItem} onClick={secondLinkHandler}>
-              Link 2
+              Bank Accounts
             </li>
             <li className={styles.menuItem} onClick={thirdLinkHandler}>
-              Link 3
+              Customers
             </li>
             <li className={styles.menuItem} onClick={fourthLinkHandler}>
-              Link 4
+              Vendors
             </li>
           </ul>
         </PanelBarItem>

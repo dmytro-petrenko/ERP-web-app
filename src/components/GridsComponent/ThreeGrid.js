@@ -3,7 +3,7 @@ import { Splitter } from '@progress/kendo-react-layout';
 import GridComponent from '../GridComponent';
 import { splitObjectToArrayObj } from '../../utils';
 
-const ThreeGrid = ({ data, showData, setShowData }) => {
+const ThreeGrid = ({ showData, setShowData }) => {
   const [panes, setPanes] = useState([{}, {}]);
 
   const [nestedPanes, setNestedPanes] = useState([
@@ -16,9 +16,9 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
   ]);
 
   const showDataArr = splitObjectToArrayObj(showData);
-  const filteredPosShowDataArr = showDataArr.filter((item) => {
-    if (Object.values(item)[0] === true) return item;
-  });
+  const filteredPosShowDataArr = showDataArr.filter(
+    (item) => Object.values(item)[0]
+  );
 
   const onChange = (event) => {
     setPanes(event.newState);
@@ -43,9 +43,8 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
           <Fragment key={index}>
             {item.first ? (
               <GridComponent
-                num="1"
+                title="Accounts"
                 heightData={300}
-                data={data}
                 showDataHandler={() =>
                   setShowData({ ...showData, first: false })
                 }
@@ -53,9 +52,8 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.second ? (
               <GridComponent
-                num="2"
+                title="Bank Accounts"
                 heightData={300}
-                data={data}
                 showDataHandler={() =>
                   setShowData({ ...showData, second: false })
                 }
@@ -63,9 +61,8 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.third ? (
               <GridComponent
-                num="3"
+                title="Customers"
                 heightData={300}
-                data={data}
                 showDataHandler={() =>
                   setShowData({ ...showData, third: false })
                 }
@@ -73,9 +70,8 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
             ) : null}
             {item.fourth ? (
               <GridComponent
-                num="4"
+                title="Vendors"
                 heightData={300}
-                data={data}
                 showDataHandler={() =>
                   setShowData({ ...showData, fourth: false })
                 }
@@ -88,17 +84,15 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
         <Fragment key={index}>
           {item.first ? (
             <GridComponent
-              num="1"
+              title="Accounts"
               heightData={300}
-              data={data}
               showDataHandler={() => setShowData({ ...showData, first: false })}
             />
           ) : null}
           {item.second ? (
             <GridComponent
-              num="2"
+              title="Bank Accounts"
               heightData={'300px'}
-              data={data}
               showDataHandler={() =>
                 setShowData({ ...showData, second: false })
               }
@@ -106,17 +100,15 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
           ) : null}
           {item.third ? (
             <GridComponent
-              num="3"
+              title="Customers"
               heightData={300}
-              data={data}
               showDataHandler={() => setShowData({ ...showData, third: false })}
             />
           ) : null}
           {item.fourth ? (
             <GridComponent
-              num="4"
+              title="Vendors"
               heightData={300}
-              data={data}
               showDataHandler={() =>
                 setShowData({ ...showData, fourth: false })
               }
@@ -128,34 +120,3 @@ const ThreeGrid = ({ data, showData, setShowData }) => {
   );
 };
 export default ThreeGrid;
-
-{
-  /* {showData.first ? (
-        <GridComponent
-          num="1"
-          data={data}
-          showDataHandler={() => setShowData({ ...showData, first: false })}
-        />
-      ) : null}
-      {showData.second ? (
-        <GridComponent
-          num="2"
-          data={data}
-          showDataHandler={() => setShowData({ ...showData, second: false })}
-        />
-      ) : null}
-      {showData.third ? (
-        <GridComponent
-          num="3"
-          data={data}
-          showDataHandler={() => setShowData({ ...showData, third: false })}
-        />
-      ) : null}
-      {showData.fourth ? (
-        <GridComponent
-          num="4"
-          data={data}
-          showDataHandler={() => setShowData({ ...showData, fourth: false })}
-        />
-      ) : null} */
-}

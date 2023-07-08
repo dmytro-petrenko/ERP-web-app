@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Splitter } from '@progress/kendo-react-layout';
 import GridComponent from '../GridComponent';
 
-const TwoGrid = ({ data, showData, setShowData }) => {
+const TwoGrid = ({ showData, setShowData }) => {
   const [panes, setPanes] = useState([
     {
       size: '50%',
@@ -24,33 +24,29 @@ const TwoGrid = ({ data, showData, setShowData }) => {
     >
       {showData.first ? (
         <GridComponent
-          num="1"
+          title="Accounts"
           heightData={'100%'}
-          data={data}
           showDataHandler={() => setShowData({ ...showData, first: false })}
         />
       ) : null}
       {showData.second ? (
         <GridComponent
-          num="2"
+          title="Bank Accounts"
           heightData={'100%'}
-          data={data}
           showDataHandler={() => setShowData({ ...showData, second: false })}
         />
       ) : null}
       {showData.third ? (
         <GridComponent
-          num="3"
+          title="Customers"
           heightData={'100%'}
-          data={data}
           showDataHandler={() => setShowData({ ...showData, third: false })}
         />
       ) : null}
       {showData.fourth ? (
         <GridComponent
-          num="4"
+          title="Vendors"
           heightData={'100%'}
-          data={data}
           showDataHandler={() => setShowData({ ...showData, fourth: false })}
         />
       ) : null}
