@@ -44,7 +44,7 @@ const ThreeGrid = ({ showData, setShowData }) => {
             {item.first ? (
               <GridComponent
                 title="Accounts"
-                heightData={300}
+                heightData={'100%'}
                 showDataHandler={() =>
                   setShowData({ ...showData, first: false })
                 }
@@ -53,7 +53,7 @@ const ThreeGrid = ({ showData, setShowData }) => {
             {item.second ? (
               <GridComponent
                 title="Bank Accounts"
-                heightData={300}
+                heightData={'100%'}
                 showDataHandler={() =>
                   setShowData({ ...showData, second: false })
                 }
@@ -62,7 +62,7 @@ const ThreeGrid = ({ showData, setShowData }) => {
             {item.third ? (
               <GridComponent
                 title="Customers"
-                heightData={300}
+                heightData={'100%'}
                 showDataHandler={() =>
                   setShowData({ ...showData, third: false })
                 }
@@ -71,7 +71,7 @@ const ThreeGrid = ({ showData, setShowData }) => {
             {item.fourth ? (
               <GridComponent
                 title="Vendors"
-                heightData={300}
+                heightData={'100%'}
                 showDataHandler={() =>
                   setShowData({ ...showData, fourth: false })
                 }
@@ -85,14 +85,14 @@ const ThreeGrid = ({ showData, setShowData }) => {
           {item.first ? (
             <GridComponent
               title="Accounts"
-              heightData={300}
+              heightData={'100%'}
               showDataHandler={() => setShowData({ ...showData, first: false })}
             />
           ) : null}
           {item.second ? (
             <GridComponent
               title="Bank Accounts"
-              heightData={'300px'}
+              heightData={'100%'}
               showDataHandler={() =>
                 setShowData({ ...showData, second: false })
               }
@@ -101,14 +101,14 @@ const ThreeGrid = ({ showData, setShowData }) => {
           {item.third ? (
             <GridComponent
               title="Customers"
-              heightData={300}
+              heightData={'100%'}
               showDataHandler={() => setShowData({ ...showData, third: false })}
             />
           ) : null}
           {item.fourth ? (
             <GridComponent
               title="Vendors"
-              heightData={300}
+              heightData={'100%'}
               showDataHandler={() =>
                 setShowData({ ...showData, fourth: false })
               }
