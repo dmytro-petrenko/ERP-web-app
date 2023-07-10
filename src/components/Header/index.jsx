@@ -1,14 +1,23 @@
-import styles from './header.module.scss';
+import { useRef, useState } from 'react';
 import {
   AppBar,
   AppBarSection,
   AppBarSpacer,
   Avatar,
 } from '@progress/kendo-react-layout';
-import userAvatar from '../../assets/images/placeholder_avatar.jpg';
+import { Popup } from '@progress/kendo-react-popup';
 import clsx from 'clsx';
+import styles from './header.module.scss';
+import userAvatar from '../../assets/images/placeholder_avatar.jpg';
 
 const Header = ({ showSidebar, setShowSidebar }) => {
+  const anchor = useRef(null);
+  const [show, setShow] = useState(false);
+
+  const clickHandler = () => {
+    setShow(!show);
+  };
+
   const showSidebarHandler = () => {
     setShowSidebar(!showSidebar);
   };
@@ -52,9 +61,42 @@ const Header = ({ showSidebar, setShowSidebar }) => {
         <AppBarSpacer />
 
         <AppBarSection>
-          <Avatar type="image">
-            <img src={userAvatar} alt="user" />
+          <Avatar type="image" style={{ cursor: 'pointer' }}>
+            <img
+              src={userAvatar}
+              alt="user"
+              onClick={clickHandler}
+              ref={anchor}
+            />
           </Avatar>
+          <Popup
+            anchorAlign={{ horizontal: 'right', vertical: 'top' }}
+            popupAlign={{
+              horizontal: 'right',
+              vertical: 'bottom',
+            }}
+            anchor={anchor.current}
+            show={show}
+            popupClass={styles.popupContent}
+          >
+            <div className={styles.dropdownHeader}>
+              <Avatar type="image">
+                <img src={userAvatar} alt="user" />
+              </Avatar>
+              <h5>User 1</h5>
+            </div>
+            <nav className={styles.navList}>
+              <ul>
+                <li>Set Status</li>
+                <li>Profile&Account</li>
+                <li>Settings</li>
+                <li>Manage Team</li>
+              </ul>
+            </nav>
+            <div className={styles.footer}>
+              <p>Sign Out</p>
+            </div>
+          </Popup>
         </AppBarSection>
 
         <AppBarSpacer
